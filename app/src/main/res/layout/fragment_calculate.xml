@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <Button
+            android:id="@+id/plusBtn" android:layout_width="0dp" android:layout_height="wrap_content"
+            android:text="@string/plus"
+            android:textSize="@dimen/font_250"
+            android:onClick="clickValue"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/minusBtn"
+
+            android:layout_marginTop="@dimen/spacing_500"
+            />
+
+        <Button
+            android:id="@+id/minusBtn" android:layout_width="0dp" android:layout_height="wrap_content"
+            android:text="@string/minus"
+            android:textSize="@dimen/font_250"
+
+            app:layout_constraintTop_toTopOf="@id/plusBtn"
+            app:layout_constraintBottom_toBottomOf="@id/plusBtn"
+            app:layout_constraintStart_toEndOf="@id/plusBtn"
+            app:layout_constraintEnd_toStartOf="@id/multiplyBtn"
+
+            />
+
+        <Button
+            android:id="@+id/multiplyBtn" android:layout_width="0dp" android:layout_height="wrap_content"
+            android:text="@string/multiply"
+            android:textSize="@dimen/font_250"
+
+            app:layout_constraintTop_toTopOf="@id/plusBtn"
+            app:layout_constraintBottom_toBottomOf="@id/plusBtn"
+            app:layout_constraintStart_toEndOf="@id/minusBtn"
+            app:layout_constraintEnd_toStartOf="@id/modularBtn"
+
+            />
+
+        <Button
+            android:id="@+id/modularBtn" android:layout_width="0dp" android:layout_height="wrap_content"
+            android:text="@string/modular"
+            android:textSize="@dimen/font_250"
+
+            app:layout_constraintTop_toTopOf="@id/plusBtn"
+            app:layout_constraintBottom_toBottomOf="@id/plusBtn"
+            app:layout_constraintStart_toEndOf="@id/multiplyBtn"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
+        <Button
+            android:id="@+id/clearBtn" android:layout_width="0dp" android:layout_height="wrap_content"
+            android:text="@string/clear"
+            android:textSize="@dimen/font_250"
+
+            app:layout_constraintStart_toStartOf="@id/plusBtn"
+            app:layout_constraintEnd_toStartOf="@id/resultBtn"
+            app:layout_constraintTop_toBottomOf="@id/plusBtn"
+
+
+            android:layout_marginTop="@dimen/spacing_500"
+            />
+
+        <Button
+            android:id="@+id/resultBtn" android:layout_width="0dp" android:layout_height="wrap_content"
+            android:text="@string/result"
+            android:textSize="@dimen/font_250"
+
+            app:layout_constraintTop_toTopOf="@id/clearBtn"
+            app:layout_constraintBottom_toBottomOf="@id/clearBtn"
+            app:layout_constraintStart_toEndOf="@id/clearBtn"
+            app:layout_constraintEnd_toEndOf="@id/minusBtn"
+            />
+
+        <Button
+            android:id="@+id/zeroBtn" android:layout_width="0dp" android:layout_height="wrap_content"
+            android:text="@string/zero"
+            android:textSize="@dimen/font_250"
+
+            app:layout_constraintTop_toBottomOf="@id/clearBtn"
+            app:layout_constraintStart_toStartOf="@id/plusBtn"
+            app:layout_constraintEnd_toStartOf="@id/oneBtn"
+
+            android:layout_marginTop="@dimen/spacing_500"
+            />
+
+        <Button
+            android:id="@+id/oneBtn" android:layout_width="0dp" android:layout_height="wrap_content"
+            android:text="@string/one"
+            android:textSize="@dimen/font_250"
+
+            app:layout_constraintTop_toTopOf="@id/zeroBtn"
+            app:layout_constraintBottom_toBottomOf="@id/zeroBtn"
+            app:layout_constraintStart_toEndOf="@id/zeroBtn"
+            app:layout_constraintEnd_toStartOf="@id/twoBtn"
+            />
+
+        <Button
+            android:id="@+id/twoBtn" android:layout_width="0dp" android:layout_height="wrap_content"
+            android:text="@string/two"
+            android:textSize="@dimen/font_250"
+
+            app:layout_constraintTop_toTopOf="@id/zeroBtn"
+            app:layout_constraintBottom_toBottomOf="@id/zeroBtn"
+            app:layout_constraintStart_toEndOf="@id/oneBtn"
+            app:layout_constraintEnd_toEndOf="@id/multiplyBtn"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

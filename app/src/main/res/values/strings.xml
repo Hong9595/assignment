@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">BankSalad</string>
+    <string name="plus">+</string>
+    <string name="minus">-</string>
+    <string name="multiply">x</string>
+    <string name="modular">%</string>
+    <string name="result">=</string>
+    <string name="clear">C</string>
+    <string name="zero">0</string>
+    <string name="one">1</string>
+    <string name="two">2</string>
+
+</resources>
