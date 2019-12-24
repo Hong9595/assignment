@@ -45,6 +45,7 @@ class DisplayFragment : Fragment(), DisplayContractor.View{
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        displayPresenter.attachView(this)
         if(savedInstanceState == null){
             // savedInstanceState == NULL 이라면 repo -> local datasource에서data 가져오기
             // presenter.getData() -> Repository.getData()
@@ -52,8 +53,6 @@ class DisplayFragment : Fragment(), DisplayContractor.View{
         } else {
             displayContent.text = savedInstanceState.getString(BACKUP_CALCULATION_RESULT)
         }
-
-        displayPresenter.attachView(this)
         displayPresenter.getInputNumber()
     }
 

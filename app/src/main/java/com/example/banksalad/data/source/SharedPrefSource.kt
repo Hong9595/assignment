@@ -10,12 +10,12 @@ import io.reactivex.Single
 
 object SharedPrefSource : DataSource{
     const val SHARED_PREF_KEY = "shared_pref_key"
-    val pref = BaseApplication.appContext.getSharedPreferences(SHARED_PREF_KEY,0)
-    val editor = pref.edit()
+    val pref = BaseApplication.appContext?.getSharedPreferences(SHARED_PREF_KEY,0)
+    val editor = pref?.edit()
     override fun getCalculatedValue(): Maybe<String> {
         return Maybe.create { emitter ->
             try{
-                val result = pref.getString(DisplayFragment.BACKUP_CALCULATION_RESULT,"0")
+                val result = pref?.getString(DisplayFragment.BACKUP_CALCULATION_RESULT,"0")
                 if(result == null){
                     emitter.onComplete()
                 } else {
@@ -29,8 +29,8 @@ object SharedPrefSource : DataSource{
 
     override fun setCalculatedValue(result: String): Completable {
         return Completable.create { emitter ->
-            editor.putString(DisplayFragment.BACKUP_CALCULATION_RESULT, result)
-            editor.apply()
+            editor?.putString(DisplayFragment.BACKUP_CALCULATION_RESULT, result)
+            editor?.apply()
             emitter.onComplete()
         }
     }

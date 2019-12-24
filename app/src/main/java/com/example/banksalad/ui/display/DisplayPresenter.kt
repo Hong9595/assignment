@@ -54,16 +54,13 @@ class DisplayPresenter : BasePresenter<DisplayContractor.View>(), DisplayContrac
                                 // acc == -1 이라면 아직 입력 안 받은 경우
                                 // != -1 이면 이미 입력 받은 경우이므로 새로운 입력과 함께 연산 수행
                                 if(acc != -1){
-                                    Log.d("PreseterTest","LastOperator is: "+ lastOperator + " acc is :" + acc + " lastNumber is: " + displayNumber)
                                     val result = calculate(lastOperator, acc , displayNumber!!.toInt())
                                     acc = result.toInt()
                                     lastNumber = displayNumber
                                     view?.showNumber(result)
-                                    Log.d("PreseterTest","calculate is performed and result : " + result)
                                 } else { // 첫 입력
                                     displayNumber?.let {
                                         acc = it.toInt()
-                                        Log.d("PreseterTest","Queue push. Push num is: " + it)
                                     }
                                 }
                             }
@@ -84,13 +81,10 @@ class DisplayPresenter : BasePresenter<DisplayContractor.View>(), DisplayContrac
                                             lastNumber = it
                                         }
                                     }
-                                    Log.d("PreseterTest=","LastOperator is: "+ lastOperator + " acc is :" + acc + " lastNumber is: " + displayNumber)
                                     result = calculate(lastOperator,acc,lastNumber.toInt())
                                     acc = result.toInt()
                                 }
                             }
-
-                            Log.d("PreseterTest=","result is: "+ result)
                             view?.showNumber(result)
                             opeartorFlag = true
                         }
@@ -101,13 +95,12 @@ class DisplayPresenter : BasePresenter<DisplayContractor.View>(), DisplayContrac
                             acc = -1
                             view?.showNumber("0")
                             opeartorFlag = true
-                            // operatorFlag == false로 해줘도 어차피 다른 연산자 누를시에 display가 0이라 상관 없을듯.
                         }
                         else -> {}
                     }
                 },
                 onComplete = {},
-                onError = { }
+                onError = { it.printStackTrace() }
             )
     }
 
@@ -118,7 +111,7 @@ class DisplayPresenter : BasePresenter<DisplayContractor.View>(), DisplayContrac
             .subscribeBy(
                 onSuccess = { view?.showNumber(it) },
                 onComplete = {},
-                onError = {}
+                onError = { it.printStackTrace() }
             )
     }
 
@@ -127,7 +120,7 @@ class DisplayPresenter : BasePresenter<DisplayContractor.View>(), DisplayContrac
             .subscribeOn(Schedulers.io())
             .subscribeBy(
                 onComplete = {},
-                onError = {}
+                onError = { it.printStackTrace() }
             )
     }
 
@@ -146,8 +139,6 @@ class DisplayPresenter : BasePresenter<DisplayContractor.View>(), DisplayContrac
             else -> {
                 return "0"
             }
-//            "C" -> { return "0" }
-//            "%" -> { return (value1 + value2 / 100).toString()}
         }
     }
 }
